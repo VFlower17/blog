@@ -6,11 +6,25 @@ USE BLOG;
 
 CREATE TABLE usuario
 (
-    id  int AUTO_INCREMENT,
-    nome    VARCHAR(100),
-    email   VARCHAR(100),
-    senha   VARCHAR(050),
-    ativo   BOOL,
-    id_cidade   INT,
+    id  INT(11) NOT NULL AUTO_INCREMENT,
+    nome    VARCHAR(50) NOT NULL,
+    email   VARCHAR(255) NOT NULL,
+    senha   CHAR(60) NOT NULL,
+    data_criacao DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    ativo   TINYINT(4) NOT NULL DEFAULT '0',
+    adm TINYINT(4) NOT NULL DEFAULT '0',
     PRIMARY KEY(id)
+);
+
+CREATE TABLE post
+(
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    titulo VARCHAR(255) NOT NULL,
+    texto TEXT NOT NULL,
+    data_criacao DATETIME NOT NULL CURRENT_TIMESTAMP,
+    data_postagem DATETIME NOT NULL,
+    id_usuario INT NOT NULL,
+    PRIMARY KEY(id),
+    KEY fk_post_usuario_idx(id_usuario),
+    CONSTRAINT fk_post_usuario_idx FOREIGN KEY(id_usuario) REFERENCES usuario(id) 
 );

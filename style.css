@@ -30,12 +30,13 @@ header {
 }
 
 .sidebar {
-    background-color: #282828;
+    background-color: #9400D3;
     position: fixed;
     top: 0;
     right: -290px;
-    height: 100%;
-    width: 20%;
+    height: 25vh;
+    width: 25vh;
+    border-bottom-left-radius: 25vh;
     transition: right 0.6 ease-in-out;
 }
 
@@ -45,7 +46,7 @@ header {
 }
 
 .close-menu .vbar1, .vbar2, .vbar3{
-    background-color: #9400D3;
+    background-color: #282828;
     height: 6px;
     width: 40px;
     margin: 5px;
@@ -55,7 +56,7 @@ header {
 .close-menu {
     position: relative;
     top: 0;
-    left: 0;
+    float: right;
 }
 
 main {
