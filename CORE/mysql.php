@@ -15,7 +15,7 @@
 
         $stmt = mysqli_prepare($conexao, $instrucao);
 
-        eval('mysqli_stmt_blind_param($stmt, \''.implode('',$tipo).'\',$'.implode(', $', array_keys($dados)).');');
+        eval('mysqli_stmt_bind_param($stmt, \''.implode('',$tipo).'\',$'.implode(', $', array_keys($dados)).');');
 
         mysqli_stmt_execute($stmt);
 
@@ -65,7 +65,7 @@
         $stmt = mysqli_prepare($conexao, $instrucao);
 
         if(isset($tipo)){
-            $comando = 'mysqli_stmt_blind_param($stmt,';
+            $comando = 'mysqli_stmt_bind_param($stmt,';
             $comando .= "'".implode('',$tipo)."'";
             $comando .= ', $'.implode(', $', array_keys($dados));
             $comando .= ', $'.implode(', $', $campos_criterio);
@@ -114,7 +114,7 @@
         $stmt = mysqli_prepare($conexao, $instrucao);
 
         if(isset($tipo)){
-            $comando = 'mysqli_stmt_blind_param($stmt,';
+            $comando = 'mysqli_stmt_bind_param($stmt,';
             $comando .= "'".implode('', $tipo)."'";
             $comando .= ', $'.implode(', $', $campos_criterio);
             $comando .= ');';
@@ -165,10 +165,10 @@
         $stmt = mysqli_prepare($conexao, $instrucao);
 
         if(isset($tipo)){
-            $comando = 'mysqli_stmt_blind_param($stmt, ';
-            $comando = "'".implode('',$tipo)."'";
-            $comando = ', $'.implode(', $', $campos_criterio);
-            $comando = ');';
+            $comando = 'mysqli_stmt_bind_param($stmt, ';
+            $comando .= "'".implode('', $tipo)."'";
+            $comando .= ', $'.implode(', $', $campos_criterio);
+            $comando .= ');';
 
             eval($comando);
         }
