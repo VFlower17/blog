@@ -11,17 +11,19 @@
         }
 
         $instrucao = insert($entidade, $coringa);
+
         $conexao = conecta();
 
         $stmt = mysqli_prepare($conexao, $instrucao);
 
-        eval('mysqli_stmt_bind_param($stmt, \''.implode('',$tipo).'\',$'.implode(', $', array_keys($dados)).');');
+        eval('mysqli_stmt_bind_param($stmt, \''.implode('',$tipo).'\',$'
+        .implode(', $', array_keys($dados)).');');
 
         mysqli_stmt_execute($stmt);
 
         $retorno = (boolean) mysqli_stmt_affected_rows($stmt);
 
-        $_SESSION['erros'] = mysqli_stmt_error_list($stmt);
+        $_SESSION['errors'] = mysqli_stmt_error_list($stmt);
 
         mysqli_stmt_close($stmt);
 
@@ -41,10 +43,10 @@
         }
 
         foreach($criterio as $expressao){
-            $dado = $expressao[count($expressao)-1];
+            $dado = $expressao[count($expressao) -1];
 
             $tipo[] = gettype($dado)[0];
-            $expressao[count($expressao)-1] = '?';
+            $expressao[count($expressao) -1] = '?';
             $coringa_criterio[] = $expressao;
 
             $nome_campo = (count($expressao)<4) ? $expressao[0] : $expressao[1];
@@ -66,7 +68,7 @@
 
         if(isset($tipo)){
             $comando = 'mysqli_stmt_bind_param($stmt,';
-            $comando .= "'".implode('',$tipo)."'";
+            $comando .= "'".implode('', $tipo)."'";
             $comando .= ', $'.implode(', $', array_keys($dados));
             $comando .= ', $'.implode(', $', $campos_criterio);
             $comando .= ');';
@@ -94,13 +96,13 @@
         $coringa_criterio = [];
 
         foreach($criterio as $expressao){
-            $dado = $expressao[count($expressao)-1];
+            $dado = $expressao[count($expressao) -1];
 
             $tipo[] = gettype($dado)[0];
-            $expressao[count($expressao)-1] = '?';
+            $expressao[count($expressao) -1] = '?';
             $coringa_criterio[] = $expressao;
 
-            $nome_campo = (count($expressao) <4) ? $expressao[0] : $expressao[1];
+            $nome_campo = (count($expressao) < 4) ? $expressao[0] : $expressao[1];
 
             $campos_criterio[] = $nome_campo;
 
@@ -135,19 +137,20 @@
         return $retorno;
     }
 
-    function buscar(string $entidade, array $campos = ['*'], array $criterio = [], string $ordem = null) : array
+    function buscar(string $entidade, array $campos = ['*'], array $criterio = [],
+    string $ordem = null) : array
     {
         $retorno = false;
         $coringa_criterio = [];
 
         foreach($criterio as $expressao){
-            $dado = $expressao[count($expressao)-1];
+            $dado = $expressao[count($expressao) -1];
 
             $tipo[] = gettype($dado)[0];
-            $expressao[count($expressao)-1] = '?';
+            $expressao[count($expressao) - 1] = '?';
             $coringa_criterio[] = $expressao;
 
-            $nome_campo = (count($expressao)<4) ? $expressao[0] : $expressao [1];
+            $nome_campo = (count($expressao) < 4) ? $expressao[0] : $expressao[1];
 
             if(isset($$nome_campo)){
                 $nome_campo = $nome_campo.'_'.rand();
@@ -181,7 +184,7 @@
             mysqli_free_result($result);
         }
 
-        $_SESSION['erros'] = mysqli_stmt_error_list($stmt);
+        $_SESSION['errors'] = mysqli_stmt_error_list($stmt);
 
         mysqli_stmt_close($stmt);
 

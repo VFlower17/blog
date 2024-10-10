@@ -19,10 +19,10 @@ $id = (int)$id;
 switch($acao){
     case 'insert':
         $dados = [
-            'titulo' => $titulo,
-            'texto' => $texto,
+            'titulo'        => $titulo,
+            'texto'         => $texto,
             'data_postagem' => "$data_postagem $hora_postagem",
-            'usuario_id' => $_SESSION['login']['usuario']['id']
+            'usuario_id'    => $_SESSION['login']['usuario']['id']
         ];
 
         insere(
@@ -33,10 +33,10 @@ switch($acao){
         break;
     case 'update':
         $dados = [
-            'titulo' => $titulo,
-            'texto' => $texto,
+            'titulo'        => $titulo,
+            'texto'         => $texto,
             'data_postagem' => "$data_postagem $hora_postagem",
-            'usuario_id' => $_SESSION['login']['usuario']['id']
+            'usuario_id'    => $_SESSION['login']['usuario']['id']
         ];
 
         $criterio = [

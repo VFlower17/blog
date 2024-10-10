@@ -49,9 +49,10 @@
         return $instrucao;
     }
 
-    function select(string $entidade, array $campos, array $criterio = [], string $ordem = null) : string
+    function select(string $entidade, array $campos, array $criterio = [],
+    string $ordem = null) : string
     {
-        $instrucao = "SELECT ".implode(', ', $campos);
+        $instrucao = "SELECT ".implode(', ' ,$campos);
         $instrucao .= " FROM {$entidade}";
 
         if(!empty($criterio)){
@@ -63,7 +64,7 @@
         }
 
         if(!empty($ordem)){
-            $instrucao .= " ORDER BY $ordem";
+            $instrucao .= " ORDER BY $ordem "; 
         }
 
         return $instrucao;

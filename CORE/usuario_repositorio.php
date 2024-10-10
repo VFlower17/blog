@@ -48,7 +48,7 @@ switch($acao){
         break;
     case 'login':
         $criterio = [
-            ['email','=',1],
+            ['email','=', $email],
             ['AND','ativo','=',1]
         ];
 
@@ -58,10 +58,10 @@ switch($acao){
             $criterio
         );
 
-        if(count($retorno)>0){
+        if(count($retorno) > 0){
             if(crypt($senha,$salt) == $retorno[0]['senha']){
                 $_SESSION['login']['usuario'] = $retorno[0];
-                if(empty($_SESSION['url_retorno'])){
+                if(!empty($_SESSION['url_retorno'])){
                     header('Location: '.$_SESSION['url_retorno']);
                     $_SESSION['url_retorno'] = '';
                     exit;
