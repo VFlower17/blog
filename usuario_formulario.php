@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuario</title>
-    <link rel="stylesheet" href="lib/bootstrap-4.2.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="LIB/bootstrap-4.2.1-dist/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
@@ -73,6 +73,6 @@
             </div>
         </div>
     </div>
-    <script src="lib/bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
+    <script src="LIB/bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
 </body>
 </html>

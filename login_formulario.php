@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="lib/bootstrap-4.2.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="LIB/bootstrap-4.2.1-dist/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
@@ -22,7 +19,7 @@
                 <div class="card-header">Login</div>
                 <div class="card-body">
                     <form action="CORE/usuario_repositorio.php" method="post">
-                        <input type="hidden" name="login" value="login">
+                        <input type="hidden" name="acao" value="login">
                         <div class="form-group">
                             <label for="email">E-mail</label>
                             <input type="text" name="email" id="email" class="form-control" require="required">
@@ -46,6 +43,6 @@
             </div>
         </div>
     </div>
-    <script src="lib/bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
+    <script src="LIB/bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
 </body>
 </html>

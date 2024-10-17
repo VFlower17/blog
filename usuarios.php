@@ -37,7 +37,7 @@
                         $$indice = limparDados($dado);
                     }
 
-                    $data_atual = date('Y-m-d H:i-s');
+                    $data_atual = date('Y-m-d H:i:s');
 
                     $criterio = [];
 
@@ -90,6 +90,14 @@
                 </table>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <?php
+                    include 'INCLUDES/rodape.php';
+                ?>
+            </div>
+        </div>
     </div>
+    <script src="LIB/bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
