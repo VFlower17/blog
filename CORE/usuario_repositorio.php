@@ -117,4 +117,5 @@ switch($acao){
         break;
 }
 header('Location: ../index.php');
+
 ?>
